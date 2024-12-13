@@ -10,10 +10,18 @@ const Navbar = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
-    const[email,setEmail]=useState("");
+    const [email,setEmail]=useState("");
     const [showDropdown, setShowDropdown] = useState(false);
     const handleClick = () => setClick(!click);
 
+    const GetUsername = () => {
+        const parts = username.split('@');
+        if (parts.length !== 2) {
+            throw new Error('Invalid email format');
+        }
+
+        return parts[0];
+    }
     
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -64,6 +72,9 @@ const Navbar = () => {
           <Link to="/search/doctors">Appointments</Link>
         </li>
         <li className="link">
+          <Link to="/instant-consultation">Booking Consultation</Link>
+        </li>
+        <li className="link">
           <Link to="/healthblog">Health Blog</Link>
         </li>
         <li className="link">
@@ -71,6 +82,9 @@ const Navbar = () => {
         </li>
         {isLoggedIn?(
           <>
+            <li className="link">
+                Welcome, {<GetUsername/>}
+            </li>
             <li className="link">
               <button className="btn2" onClick={handleLogout}>
                 Logout
@@ -98,3 +112,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
