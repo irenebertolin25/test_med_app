@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [date, setDate] = useState('');
     const [selectedSlot, setSelectedSlot] = useState(null);
+    const navigate = useNavigate();
   
     const handleSlotSelection = (slot) => {
       setSelectedSlot(slot);
@@ -12,11 +14,13 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber, date, selectedSlot });
       setName('');
       setPhoneNumber('');
       setDate('');
       setSelectedSlot('');
+
+      navigate("/notification");
     };
   
     return (
