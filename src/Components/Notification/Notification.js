@@ -18,10 +18,6 @@ const Notification = ({ children }) => {
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
     const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
 
-    console.log('------------> storedUsername: ', storedUsername);
-    console.log('------------> storedDoctorData: ', storedDoctorData);
-    console.log('------------> storedAppointmentData: ', storedAppointmentData);
-
     // Set isLoggedIn state to true and update username if storedUsername exists
     if (storedUsername) {
       setIsLoggedIn(true);
@@ -38,9 +34,6 @@ const Notification = ({ children }) => {
       setAppointmentData(storedAppointmentData);
     }
 
-    console.log('------------> username: ', username);
-    console.log('------------> doctorData: ', doctorData);
-    console.log('------------> appointmentData: ', appointmentData);
   }, []); // Empty dependency array ensures useEffect runs only once after initial render
 
   const handleCancelAppointment = () => {

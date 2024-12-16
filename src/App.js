@@ -11,6 +11,7 @@ import Sign_Up from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
 import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation';
 import Notification from './Components/Notification/Notification';
+import ReviewForm from './Components/ReviewForm/ReviewForm';
 
 // Function component for the main App
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/instant-consultation" element={<InstantConsultation/>} />
             <Route path="/notification" element={<Notification/>} />
             <Route path="/search/doctors" element={<Notification/>} />
+            <Route path="/reviews" element={<ReviewForm/>} />
           </Routes>
         </BrowserRouter>
     </div>
