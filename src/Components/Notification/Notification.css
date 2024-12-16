@@ -1,71 +1,57 @@
-/* Container for the appointment form */
-.appointment-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form group styling */
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  /* Label styling */
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Input field styling */
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  /* Button styling */
-  button[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Additional styles for time slot and date selection */
-  .time-slot-container,
-  .date-selection-container {
-    margin-bottom: 15px;
-  }
-  
-  .time-slot-container label,
-  .date-selection-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .time-slot-container select,
-  .date-selection-container input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
+/* Container for the appointment card */
+.notification-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.appointment-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: auto;
+}
+
+/* Content inside the appointment card */
+.appointment-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title for the appointment card */
+.appointment-card__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Message inside the appointment card */
+.appointment-card__message {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* Each piece of information in the appointment card */
+.appointment-card__info {
+  margin-bottom: 8px;
+}
+
+/* Cancel button inside the appointment card */
+.appointment-card__cancel-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-card__cancel-button:hover {
+  background-color: #ff1a1a;
+}

@@ -23,6 +23,8 @@ function App() {
           {/* Display the Navbar component */}
           <Navbar/>
 
+          <Notification/>
+
           {/* Set up the Routes for different pages */}
           <Routes>
             {/* Define individual Route components for different pages */}
@@ -31,6 +33,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/instant-consultation" element={<InstantConsultation/>} />
             <Route path="/notification" element={<Notification/>} />
+            <Route path="/search/doctors" element={<Notification/>} />
           </Routes>
         </BrowserRouter>
     </div>

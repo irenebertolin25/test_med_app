@@ -8,12 +8,14 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [selectedSlot, setSelectedSlot] = useState(null);
     const navigate = useNavigate();
   
-    const handleSlotSelection = (slot) => {
-      setSelectedSlot(slot);
-    };
-  
     const handleFormSubmit = (e) => {
       e.preventDefault();
+
+      const appointmentData = { name, phoneNumber, date, selectedSlot };
+
+      localStorage.setItem(doctorName, JSON.stringify(appointmentData));
+      localStorage.setItem('doctorData', JSON.stringify({ name: doctorName, speciality: doctorSpeciality }));
+
       onSubmit({ name, phoneNumber, date, selectedSlot });
       setName('');
       setPhoneNumber('');
