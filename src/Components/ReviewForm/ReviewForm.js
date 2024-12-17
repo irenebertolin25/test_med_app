@@ -7,14 +7,7 @@ const ReviewForm = () => {
     const [username, setUsername] = useState("");
     const [doctorData, setDoctorData] = useState(null);
     const [appointmentData, setAppointmentData] = useState(null);
-    const [showForm, setShowForm] = useState(false);
-
-    const handleButtonClick = () => {
-        console.log('Give Review button clicked');
-        setShowForm(true);
-        <GiveReviews/>
-        console.log('showForm: ', showForm);
-    };
+    const [showGiveReviews, setShowGiveReviews] = useState(false);
 
     // useEffect hook to perform side effects in the component
     useEffect(() => {
@@ -41,31 +34,47 @@ const ReviewForm = () => {
 
     }, []);
 
+    const handleGiveReviewClick = () => {
+        console.log('Give Review button clicked');
+        setShowGiveReviews(true);
+    };
+
+    const handleBackClick = () => {
+        console.log('Back button clicked');
+        setShowGiveReviews(false);
+    };
+
     return (
         <div>
             {isLoggedIn && doctorData && (
                 <>
-                    <h1 className='review-form__title'>Reviews</h1>
-                    <table className='review-form__table'>
-                        <thead>
-                            <tr className='review-form__heading-row'>
-                            <th scope="col">Serial Number</th>
-                            <th scope="col">Doctor Name</th>
-                            <th scope="col">Doctor Specialist</th>
-                            <th scope="col">Provide Feedback</th>
-                            <th scope="col">Review Given</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>{doctorData.name}</td>
-                                <td>{doctorData.speciality}</td>
-                                <td><button onClick={handleButtonClick}>Click here</button></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {!showGiveReviews ? (
+                        <>
+                            <h1 className='review-form__title'>Reviews</h1>
+                            <table className='review-form__table'>
+                                <thead>
+                                    <tr className='review-form__heading-row'>
+                                    <th scope="col">Serial Number</th>
+                                    <th scope="col">Doctor Name</th>
+                                    <th scope="col">Doctor Specialist</th>
+                                    <th scope="col">Provide Feedback</th>
+                                    <th scope="col">Review Given</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{doctorData.name}</td>
+                                        <td>{doctorData.speciality}</td>
+                                        <td><button onClick={handleGiveReviewClick}>Click here</button></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </>
+                    ) : (
+                      <GiveReviews doctorName={doctorData.name} onBack={handleBackClick} />
+                    )}
                 </>
             )}
         </div>

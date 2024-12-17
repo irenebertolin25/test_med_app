@@ -24,6 +24,10 @@ function GiveReviews() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleStarClick = (rating) => {
+    setFormData({ ...formData, rating });
+  };
+
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,6 +64,20 @@ function GiveReviews() {
           <div>
             <label htmlFor="review">Review:</label>
             <textarea id="review" name="review" value={formData.review} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="rating">Rating:</label>
+            <div className="star-rating">
+                {[1, 2, 3, 4, 5].map((star) => (
+                <span
+                    key={star}
+                    className={`star ${formData.rating >= star ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(star)}
+                >
+                    ★
+                </span>
+                ))}
+            </div>
           </div>
           {/* Submit button for form submission */}
           <button type="submit">Submit</button>
